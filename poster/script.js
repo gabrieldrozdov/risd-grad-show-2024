@@ -49,7 +49,7 @@ function generateBackground() {
 	let temp = "";
 	let randomImage = Math.round(Math.random()*34);
 	for (let i=0; i<500; i++) {
-		temp += `<div style="--offset: ${Math.random()*10}%; background-image: url('assets/images/img${randomImage}.jpg'); --speed-offset: ${Math.random()*100}s"></div>`;
+		temp += `<div style="--offset: ${Math.random()*10}%; background-image: url('/assets/images/img${randomImage}.jpg'); --speed-offset: ${Math.random()*100}s"></div>`;
 	}
 	posterBackground.innerHTML = temp;
 }
@@ -63,7 +63,7 @@ function generateBackgroundMulti() {
 	let temp = "";
 	for (let i=0; i<500; i++) {
 		let randomImage = images[Math.floor(Math.random()*images.length)];
-		temp += `<div style="--offset: ${Math.random()*10}%; background-image: url('assets/images/${randomImage}'); --speed-offset: ${Math.random()*10}s"></div>`;
+		temp += `<div style="--offset: ${Math.random()*10}%; background-image: url('/assets/images/${randomImage}'); --speed-offset: ${Math.random()*10}s"></div>`;
 	}
 	posterBackground.innerHTML = temp;
 }
