@@ -12,6 +12,7 @@ function toggleControls() {
 function initializeTitle() {
 	for (let span of document.querySelectorAll('.poster-title span')) {
 		span.style.setProperty('--delay', Math.random()*10-20 + "s");
+		// span.style.color = `hsl(${Math.round(Math.random()*360)}deg, 100%, 90%)`;
 		span.style.setProperty('--variation-offset', Math.round(Math.random()*50));
 	}
 }
@@ -49,21 +50,21 @@ function generateBackground() {
 	let temp = "";
 	let randomImage = Math.round(Math.random()*34);
 	for (let i=0; i<500; i++) {
-		temp += `<div style="--offset: ${Math.random()*10}%; background-image: url('/assets/images/img${randomImage}.jpg'); --speed-offset: ${Math.random()*100}s"></div>`;
+		temp += `<div style="--offset: ${Math.random()*10}%; background-image: url('assets/images/img${randomImage}.jpg'); --speed-offset: ${Math.random()*10}s"></div>`;
 	}
 	posterBackground.innerHTML = temp;
 }
 function generateBackgroundMulti() {
 	const posterBackground = document.querySelector('.poster-background');
 	let images = [];
-	let totalImages = Math.round(Math.random()*10+3);
+	let totalImages = Math.round(Math.random()*1+2);
 	for (let i=0; i<totalImages; i++) {
 		images.push(`img${Math.round(Math.random()*34)}.jpg`);
 	}
 	let temp = "";
 	for (let i=0; i<500; i++) {
 		let randomImage = images[Math.floor(Math.random()*images.length)];
-		temp += `<div style="--offset: ${Math.random()*10}%; background-image: url('/assets/images/${randomImage}'); --speed-offset: ${Math.random()*10}s"></div>`;
+		temp += `<div style="--offset: ${Math.random()*10}%; background-image: url('assets/images/${randomImage}'); --speed-offset: ${Math.random()*10}s"></div>`;
 	}
 	posterBackground.innerHTML = temp;
 }
@@ -607,14 +608,14 @@ function generatePreset(format, orientation) {
 			settingsTitleStyle = "short";
 			settingsTitleSize = "600";
 		}
-		settingsInfoSize = "32";
-		settingsDeptSize = "24";
+		settingsInfoSize = "40";
+		settingsDeptSize = "32";
 		settingsLogoSize = "2.5";
 		settingsInfoInset = ".6";
 		settingsPreviewZoom = "15";
-		settingsVignetteInset = "15";
-		settingsVignetteOpacity = ".5";
-		settingsVignetteRotation = "110";
+		settingsVignetteInset = "25";
+		settingsVignetteOpacity = ".6";
+		settingsVignetteRotation = "105";
 
 	} else if (format == "6x60") {
 		if (orientation == "portrait") {

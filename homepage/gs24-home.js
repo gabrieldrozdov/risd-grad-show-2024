@@ -8,6 +8,7 @@ const gs24DeptURLs = {
 	"Glass": "https://publications.risdmuseum.org/grad-show-2024-glass",
 	"Global Arts and Cultures": "https://publications.risdmuseum.org/grad-show-2024-global-arts-and-culture",
 	"Graphic Design": "https://publications.risdmuseum.org/grad-show-2024-graphic-design",
+	"Illustration": "https://publications.risdmuseum.org/grad-show-2024-illustration",
 	"Industrial Design": "https://publications.risdmuseum.org/grad-show-2024-industrial-design",
 	"Interior Architecture": "https://publications.risdmuseum.org/grad-show-2024-interior-architecture",
 	"Jewelry + Metalsmithing": "https://publications.risdmuseum.org/grad-show-2024-jewelry-metalsmithing",
@@ -20,18 +21,15 @@ const gs24DeptURLs = {
 	"Textiles": "https://publications.risdmuseum.org/grad-show-2024-textiles"
 }
 
-// Set images for all genart
+// Generate homepage genart
 let gs24Images = [];
-function setImages() {
+function generateImages() {
 	gs24Images = [];
 	for (let i=0; i<4; i++) {
 		let randomEntry = gs24Data[Math.floor(Math.random()*gs24Data.length)];
 		gs24Images.push(randomEntry);
 	}
-}
 
-// Generate homepage genart
-function generateImages() {	
 	const homeGenart = document.querySelector('.gs24-home-genart');
 	let homeGenartTemp = '';
 	let totalDivisions = Math.round(Math.random()*6+4);
@@ -294,7 +292,6 @@ function changeMode(newMode) {
 }
 
 // Init everything
-setImages();
 generateImages();
 generateTitleBackground();
 generateTOC();

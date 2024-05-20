@@ -1,26 +1,12 @@
-// Fetch JSON and pick random images
-let creditsJSON;
-let images = [];
-fetch('../credits.json')
-	.then((response) => response.json())
-	.then((json) => {
-		creditsJSON = json;
-		setImages();
-		generateImages();
-	})
-
-// Set images for all genart
-function setImages() {
-	images = [];
-	for (let i=0; i<1; i++) {
-		let keys = Object.keys(creditsJSON);
-		let randomImage = creditsJSON[Math.floor(Math.random()*keys.length)]['img'];
-		images.push(randomImage);
-	}
-}
-
 // Generate subpagepage genart
-function generateImages() {	
+function generateSubpageImages() {	
+	let subpageImages = [];
+	let totalSubpageImages = Math.round(Math.random()*5)+2;
+	for (let i=0; i<totalSubpageImages; i++) {
+		let randomImage = `gs24-img${Math.round(Math.random()*34)}.jpg`;
+		subpageImages.push(randomImage);
+	}
+
 	const subpageGenart = document.querySelector('.gs24-subpage-genart');
 	let subpageGenartTemp = '';
 	let totalDivisions = Math.round(Math.random()*12+4);
@@ -35,23 +21,13 @@ function generateImages() {
 			// Generate slices in row
 			let slices = Math.round(Math.random()*12+4);
 			let slicesTemp = '';
-			const randomImage = images[Math.floor(Math.random()*images.length)];
+			const randomImage = subpageImages[Math.floor(Math.random()*subpageImages.length)];
 
 			for (let slice=0; slice<slices; slice++) {
-				slicesTemp += `
-					<div class="gs24-subpage-genart-slice" style="background-image:url('../2023-images/${randomImage}'); animation: background-shift 600s -${Math.random()*10}s infinite linear;">
-						<div class="gs24-subpage-genart-slice-overlay"></div>
-					</div>
-				`;
+				slicesTemp += `<div class="gs24-subpage-genart-slice" style="background-image:url('http://risdgradshow2024.noreplica.com/assets/images/${randomImage}'); animation: background-shift 600s -${Math.random()*10}s infinite linear;"><div class="gs24-subpage-genart-slice-overlay"></div></div>`;
 			}
 
-			subpageGenartTemp += `
-				<div class="gs24-subpage-genart-row">
-					<div class="gs24-subpage-genart-slices">
-						${slicesTemp}
-					</div>
-				</div>
-			`;
+			subpageGenartTemp += `<div class="gs24-subpage-genart-row"><div class="gs24-subpage-genart-slices">${slicesTemp}</div></div>`;
 		}
 		subpageGenartTemp += `</div>`;
 	}
@@ -69,7 +45,6 @@ function generateImages() {
 
 	// Rerun code
 	setTimeout(() => {
-		setImages();
-		generateImages();
+		generateSubpageImages();
 	}, 5500)
 }

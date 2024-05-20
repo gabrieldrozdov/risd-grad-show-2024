@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+<style>
+/* ————————————————————— */
+/* SUBPAGE */
+/* ————————————————————— */
+.gs24-subpage-container {
+	width: 100%;
+	min-height: 100dvh;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	position: relative;
+}
+.gs24-subpage-container * {
+	margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+}
+.gs24-subpage-content {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+.gs24-subpage-header {
+	width: 480px;
+	min-height: 100dvh;
+	padding: 100px 40px 40px 40px;
+	flex-grow: 1;
+	position: relative;
+	background-color: rgba(255,255,255,.85);
+	box-shadow: 0 0 2px rgba(0,0,0,.25);
+}
+.gs24-subpage-title {
+	margin-bottom: 40px;
+	font-size: 48px;
+	font-family: var(--fn__ftitalic), sans-serif;
+	font-style: italic;
+	font-weight: normal;
+	color: black;
+	letter-spacing: -.15em;
+	color: rgba(0,0,0,.85);
+}
+.gs24-subpage-desc {
+	color: rgba(0,0,0,.85);
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	font-family: var(--fn__limkinpixelmedium), sans-serif;
+	font-weight: 500;
+	font-variation-settings: "wght" 500;
+	text-wrap: pretty;
+}
+.gs24-subpage-desc p {
+	font-size: 18px;
+	color: black !important;
+	line-height: 1.3em;
+	word-spacing: -.05em;
+	max-width: 480px;
+}
+@media only screen and (max-width: 540px) {
+	.gs24-subpage-header {
+		width: 100%;
+		padding: 120px 20px 20px 20px;
+	}
+	.gs24-subpage-title {
+		font-size: 32px;
+	}
+}
+
+/* Student links */
+.gs24-subpage-students {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	margin-top: 40px;
+}
+.gs24-subpage-student {
+	padding-top: .2em;
+	background-color: rgba(0,0,0,.85);
+	font-family: var(--fn__ftitalic), sans-serif;
+	font-style: italic;
+	color: white !important;
+	display: flex;
+	gap: 20px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 20px;
+	padding: 10px 20px 8px 20px;
+	font-size: 14px;
+	text-decoration: none;
+	text-transform: uppercase;
+	transition: unset !important;
+}
+.gs24-subpage-student:hover {
+	background-color: white !important;
+	color: black !important;
+}
+.gs24-subpage-student:active {
+	opacity: .5;
+}
+
+/* Subpage genart */
+.gs24-subpage-genart-container {
+	flex-grow: 1;
+	position: absolute;
+	overflow: hidden;
+	height: 100%;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+	display: grid;
+}
+.gs24-subpage-genart {
+	display: flex;
+	overflow: hidden;
+}
+.gs24-subpage-genart-col {
+	flex-grow: 1;
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	transition: flex-grow 1s cubic-bezier(0.25, 1, 0.5, 1);
+	transform-origin: bottom;
+}
+.gs24-subpage-genart-col[data-active="1"] {
+	flex-grow: 15;
+}
+.gs24-subpage-genart-row {
+	position: relative;
+	flex-grow: 1;
+	transition: flex-grow 1s cubic-bezier(0.25, 1, 0.5, 1);
+	animation: gs24-subpage-genart-in 1s forwards cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gs24-subpage-genart-row[data-active="1"] {
+	flex-grow: 10;
+}
+.gs24-subpage-genart-slices {
+	display: flex;
+	width: 100%;
+	height: 100%;
+}
+.gs24-subpage-genart-slice {
+	flex-grow: 1;
+	background-size: auto 100000%;
+	position: relative;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	transition: flex-grow 2s cubic-bezier(0.25, 1, 0.5, 1), background-size 1s cubic-bezier(0.7, 0, 0.84, 0);
+}
+.gs24-subpage-genart-slice[data-active="1"] {
+	z-index: 1;
+	flex-grow: 25;
+	background-size: auto 200%;
+	transition: flex-grow 2s cubic-bezier(0.25, 1, 0.5, 1), background-size 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.gs24-subpage-genart-slice-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: white;
+}
+</style>
+<div class="gs24-subpage-container">
+<div class="gs24-subpage-content">
+	<header class="gs24-subpage-header">
+		<h2 class="gs24-subpage-title">Arhictecture</h2>
+		<div class="gs24-subpage-desc">
+			<p>
+				RISD’s Master of Architecture program is taught in a way that understands the practice of design and making as a thoughtful, reflective process that both engenders and draws from social, political, material, technological and cultural agendas. The program aims to empower graduate students to exercise their creativity by claiming their role as cultural creators, and position their work within the discipline of architecture.
+			</p>
+			<p>
+				The thesis project represents the culmination of each student's interests and embodies the architectural values that best characterize the authors as architects. Their body of research engages a range of pressing contemporary issues reflecting the values of the department such as questioning the architectural canon, interdisciplinary ways of making, and imagining more just and equitable futures through the power of design.
+			</p>
+		</div>
+		<div class="gs24-subpage-header-background"></div>
+
+		<div class="gs24-subpage-students">
+			<a href="#" class="gs24-subpage-student">John Doe</a>
+			<a href="#" class="gs24-subpage-student">John Doe</a>
+			<a href="#" class="gs24-subpage-student">John Doe</a>
+			<a href="#" class="gs24-subpage-student">John Doe</a>
+			<a href="#" class="gs24-subpage-student">John Doe</a>
+			<a href="#" class="gs24-subpage-student">John Doe</a>
+			<a href="#" class="gs24-subpage-student">John Doe</a>
+			<a href="#" class="gs24-subpage-student">John Doe</a>
+			<a href="#" class="gs24-subpage-student">John Doe</a>
+			<a href="#" class="gs24-subpage-student">John Doe</a>
+			<a href="#" class="gs24-subpage-student">John Doe</a>
+		</div>
+	</header>
+</div>
+
+<div class="gs24-subpage-genart-container">
+	<div class="gs24-subpage-genart"></div>
+</div>
+</div>
+<script>
+function generateSubpageImages() {	
+	let subpageImages = [];
+	let totalSubpageImages = Math.round(Math.random()*5)+2;
+	for (let i=0; i<totalSubpageImages; i++) {
+		let randomImage = `gs24-img${Math.round(Math.random()*34)}.jpg`;
+		subpageImages.push(randomImage);
+	}
+
+	const subpageGenart = document.querySelector('.gs24-subpage-genart');
+	let subpageGenartTemp = '';
+	let totalDivisions = Math.round(Math.random()*12+4);
+	for (let col=0; col<totalDivisions; col++) {
+		// Set random number of rows for col
+		let rows = Math.round(Math.random()*12+4);
+		subpageGenartTemp += `<div class="gs24-subpage-genart-col">`;
+
+		// Generate rows in column
+		for (let row=0; row<rows; row++) {
+
+			// Generate slices in row
+			let slices = Math.round(Math.random()*12+4);
+			let slicesTemp = '';
+			const randomImage = subpageImages[Math.floor(Math.random()*subpageImages.length)];
+
+			for (let slice=0; slice<slices; slice++) {
+				slicesTemp += `<div class="gs24-subpage-genart-slice" style="background-image:url('http://risdgradshow2024.noreplica.com/assets/images/${subpageImages[Math.floor(Math.random()*subpageImages.length)]}'); animation: background-shift 600s -${Math.random()*10}s infinite linear;"><div class="gs24-subpage-genart-slice-overlay"></div></div>`;
+			}
+
+			subpageGenartTemp += `<div class="gs24-subpage-genart-row"><div class="gs24-subpage-genart-slices">${slicesTemp}</div></div>`;
+		}
+		subpageGenartTemp += `</div>`;
+	}
+	subpageGenart.innerHTML = subpageGenartTemp;
+
+	// Reveal slices
+	for (let sliceOverlay of subpageGenart.querySelectorAll('.gs24-subpage-genart-slice-overlay')) {
+		setTimeout(() => {
+			sliceOverlay.style.opacity = 0;
+			setTimeout(() => {
+				sliceOverlay.style.opacity = 1;
+			}, Math.random()*1000+3000)
+		}, Math.random()*1000)
+	}
+
+	// Rerun code
+	setTimeout(() => {
+		generateSubpageImages();
+	}, 5500)
+}
+generateSubpageImages();
+</script>
+</body>
+</html>

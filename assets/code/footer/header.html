@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Footer</title>
+</head>
+<body>
+
+<style>
+.gs24-header-genart {
+	display: flex;
+	height: 20px;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.gs24-header-genart-col {
+	height: 100%;
+	flex-grow: 1;
+	background-size: auto 1000000%;
+	position: relative;
+	background-repeat: no-repeat;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+@keyframes gs24-header-background-shift {
+	0% {
+		background-position: center;
+	}
+	25% {
+		background-position: right;
+	}
+	50% {
+		background-position: center;
+	}
+	75% {
+		background-position: left;
+	}
+	100% {
+		background-position: center;
+	}
+}
+</style>
+<div class="gs24-header-genart"></div>
+<script>
+	// HEADER
+	function gs24GenerateFooter() {
+		// Pick images to use
+		let images = [];
+		let totalImages = Math.round(Math.random()*5)+2;
+		for (let i=0; i<totalImages; i++) {
+			let randomImage = `gs24-img${Math.round(Math.random()*34)}.jpg`;
+			images.push(randomImage);
+		}
+
+		// Generate header
+		const headerGenart = document.querySelector('.gs24-header-genart');
+		let headerGenartTemp = '';
+		for (let col=0; col<150; col++) {
+			headerGenartTemp += `
+				<div class="gs24-header-genart-col" style="background-image: url('http://risdgradshow2024.noreplica.com/assets/images/${images[Math.floor(Math.random()*images.length)]}'); animation: gs24-header-background-shift 600s -${Math.random()*10}s infinite linear;"></div>
+			`;
+		}
+		headerGenart.innerHTML = headerGenartTemp;
+	}
+	gs24GenerateFooter();
+</script>
+</body>
+</html>
