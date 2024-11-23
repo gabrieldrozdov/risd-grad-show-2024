@@ -1,0 +1,16 @@
+<script>
+	document.addEventListener("visibilitychange", () => {
+		console.log(document.hidden);
+		// Modify behavior…
+		if (document.hidden) {
+			for (let animatedElement of document.querySelectorAll(`[style*="animation"]`)) {
+				animatedElement.style.animationPlayState = "paused";
+			}
+		} else {
+			for (let animatedElement of document.querySelectorAll(`[style*="animation"]`)) {
+				animatedElement.style.animationPlayState = "running";
+			}
+		}
+	});
+
+</script>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
+
+<style>
+	/* ————————————————————— */
+	/* FOOTER */
+	/* ————————————————————— */
+	.gs24-footer {
+		position: relative;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+	}
+	.gs24-footer * {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+	/* Footer title */
+	.gs24-footer-title {
+		top: 0;
+		left: 0;
+		height: 200px;
+		position: relative;
+		overflow: hidden;
+		display: block;
+		color: white !important;
+	}
+	.gs24-footer-title-text {
+padding-bottom: .1em;
+		font-size: calc(12.5vw / 2);
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-family: var(--fn__ft);
+		text-transform: uppercase;
+		line-height: 1em;
+		letter-spacing: 0.1em;
+		width: min-content;
+		padding-left: .1em;
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		column-gap: .2em;
+		z-index: 2;
+		mix-blend-mode: difference;
+	}
+	.gs24-footer-title span {
+		animation: gs24-footer-title 1s 1.5s infinite ease-in-out alternate;
+	}
+	@keyframes gs24-footer-title {
+		from {
+			font-variation-settings: "DISP" 0;
+		}
+		to {
+			font-variation-settings: "DISP" 100;
+		}
+	}
+	.gs24-footer-title-background-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		opacity: .5;
+		background-color: black;
+		transition: opacity .5s;
+	}
+	.gs24-footer-title:hover .gs24-footer-title-background-overlay {
+		opacity: 0;
+	}
+	.gs24-footer-title:active .gs24-footer-title-background-overlay {
+		opacity: 0.25;
+	}
+	.gs24-footer-title-background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+	}
+	.gs24-footer-title-background-col {
+		height: 100%;
+		flex-grow: 1;
+		background-size: auto 10000%;
+		position: relative;
+		background-repeat: no-repeat;
+		transition: flex-grow 2s cubic-bezier(0.25, 1, 0.5, 1), background-size 1s cubic-bezier(0.7, 0, 0.84, 0);
+	}
+	@media only screen and (max-width: 700px) {
+		.gs24-footer-title-text {
+			font-size: 12.5vw;
+			grid-template-columns: 1fr 1fr;
+		}
+		.gs24-footer-title-background {
+			width: 200%;
+		}
+	}
+	/* Footer links */
+	.gs24-footer-links {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.gs24-footer-link {
+		flex-shrink: 0;
+		height: 80px;
+		padding: 20px;
+		font-style: italic;
+		text-decoration: none;
+		font-family: ft88 italic;
+		flex-grow: 1;
+		font-size: 14px;
+		display: flex;
+		gap: 10px;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		position: relative;
+		text-transform: uppercase;
+		overflow: hidden;
+		-webkit-text-stroke: .5px black;
+		background-color: rgba(0,0,0,.25);
+	}
+	.gs24-footer-background {
+		z-index: -1;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		flex-grow: 1;
+		background-size: auto 10000%;
+		background-repeat: no-repeat;
+		transition: flex-grow 2s cubic-bezier(0.25, 1, 0.5, 1), background-size 1s cubic-bezier(0.7, 0, 0.84, 0), background-image .5s;
+	}
+	.gs24-footer-link-label {
+		padding-top: .2em;
+		background-color: rgba(255,255,255,.85);
+		color: black;
+		display: flex;
+		gap: 20px;
+		align-items: center;
+		justify-content: center;
+		border-radius: 20px;
+		padding: 0 20px 0 10px;
+		height: 40px;
+		fill: black;
+		animation: gs24-footer-link 2s infinite alternate ease-in-out;
+	}
+	.gs24-footer-link-label svg {
+		width: 15px;
+		height: 15px;
+	}
+	.gs24-footer-link-label span {
+		padding-top: .2em;
+	}
+	.gs24-footer-link:hover {
+		background-color: black;
+	}
+	.gs24-footer-link:hover .gs24-footer-link-label {
+		background-color: white;
+		color: black;
+	}
+	.gs24-footer-link:active .gs24-footer-link-label {
+		opacity: .5;
+	}
+	@keyframes gs24-footer-link {
+		from {
+			transform: translateX(-10px);
+		}
+		to {
+			transform: translateX(10px);
+		}
+	}
+	.gs24-footer-link-background {
+		z-index: -1;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		flex-grow: 1;
+		background-size: auto 100000%;
+		background-repeat: no-repeat;
+		transition: flex-grow 2s cubic-bezier(0.25, 1, 0.5, 1), background-size 1s cubic-bezier(0.7, 0, 0.84, 0), background-image .5s;
+	}
+	@media only screen and (max-width: 600px) {
+		.gs24-footer-links {
+			flex-direction: column;
+		}
+	}
+	@keyframes gs24-footer-background-shift {
+		0% {
+			background-position: center;
+		}
+		25% {
+			background-position: right;
+		}
+		50% {
+			background-position: center;
+		}
+		75% {
+			background-position: left;
+		}
+		100% {
+			background-position: center;
+		}
+	}
+	</style>
+	
+<footer class="gs24-footer">
+				
+			
+	<div class="gs24-footer-links">
+							<a class="gs24-footer-link" href="/grad-show-2024-architecture">
+					
+		<div class="gs24-footer-link-label">
+							<svg viewBox="0 0 100 100"><path d="M40,0h20v10h10v10h10v10h10v10h10v20h-10v10h-10v10h-10v10h-10v10h-20v-20h10v-10h10v-10H0v-20h60v-10h-10v-10h-10V0Z"></path></svg><span>Architecture</span>
+						
+		</div>
+					</a>
+							<a class="gs24-footer-link" href="/grad-show-2024-ceramics">
+								
+					
+		<div class="gs24-footer-link-label">
+											<svg viewBox="0 0 100 100"><path d="M40,0h20v10h10v10h10v10h10v10h10v20h-10v10h-10v10h-10v10h-10v10h-20v-20h10v-10h10v-10H0v-20h60v-10h-10v-10h-10V0Z"></path></svg>
+											<span>Ceramics</span>
+										
+						
+		</div>
+							</a>
+							<a class="gs24-footer-link" href="/grad-show-2024-design-engineering">
+								
+					
+		<div class="gs24-footer-link-label">
+											<svg viewBox="0 0 100 100"><path d="M40,0h20v10h10v10h10v10h10v10h10v20h-10v10h-10v10h-10v10h-10v10h-20v-20h10v-10h10v-10H0v-20h60v-10h-10v-10h-10V0Z"></path></svg>
+											<span>Design Engineering</span>
+										
+						
+		</div>
+							</a>
+							<a class="gs24-footer-link" href="/grad-show-2024-digital-media">
+								
+					
+		<div class="gs24-footer-link-label">
+											<svg viewBox="0 0 100 100"><path d="M40,0h20v10h10v10h10v10h10v10h10v20h-10v10h-10v10h-10v10h-10v10h-20v-20h10v-10h10v-10H0v-20h60v-10h-10v-10h-10V0Z"></path></svg>
+											<span>Digital + Media</span>
+										
+						
+		</div>
+							</a>
+							<a class="gs24-footer-link" href="/grad-show-2024-furniture-design">
+								
+					
+		<div class="gs24-footer-link-label">
+											<svg viewBox="0 0 100 100"><path d="M40,0h20v10h10v10h10v10h10v10h10v20h-10v10h-10v10h-10v10h-10v10h-20v-20h10v-10h10v-10H0v-20h60v-10h-10v-10h-10V0Z"></path></svg>
+											<span>Furniture Design</span>
+										
+						
+		</div>
+							</a>
+							<a class="gs24-footer-link" href="/grad-show-2024-glass">
+								
+					
+		<div class="gs24-footer-link-label">
+											<svg viewBox="0 0 100 100"><path d="M40,0h20v10h10v10h10v10h10v10h10v20h-10v10h-10v10h-10v10h-10v10h-20v-20h10v-10h10v-10H0v-20h60v-10h-10v-10h-10V0Z"></path></svg>
+											<span>Glass</span>
+										
+						
+		</div>
+							</a>
+							<a class="gs24-footer-link" href="/grad-show-2024-global-arts-and-cultures">
+								
+					
+		<div class="gs24-footer-link-label">
+											<svg viewBox="0 0 100 100"><path d="M40,0h20v10h10v10h10v10h10v10h10v20h-10v10h-10v10h-10v10h-10v10h-20v-20h10v-10h10v-10H0v-20h60v-10h-10v-10h-10V0Z"></path></svg>
+											<span>Global Arts and&nbsp;Cultures</span>
+										
+						
+		</div>
+							</a>
+							<a class="gs24-footer-link" href="/grad-show-2024-graphic-design">
+								
+					
+		<div class="gs24-footer-link-label">
+											<svg viewBox="0 0 100 100"><path d="M40,0h20v10h10v10h10v10h10v10h10v20h-10v10h-10v10h-10v10h-10v10h-20v-20h10v-10h10v-10H0v-20h60v-10h-10v-10h-10V0Z"></path></svg>
+											<span>Graphic Design</span>
+										
+						
+		</div>
+							</a>
+<a class="gs24-footer-link" href="/grad-show-2024-illustration">
+								
+					
+		<div class="gs24-footer-link-label">
+											<svg viewBox="0 0 100 100"><path d="M40,0h20v10h10v10h10v10h10v10h10v20h-10v10h-10v10h-10v10h-10v10h-20v-20h10v-10h10v-10H0v-20h60v-10h-10v-10h-10V0Z"></path></svg>
+											<span>Illustration</span>
+										
+						
+		</div>
+							</a>
+							<a class="gs24-footer-link" href="/grad-show-2024-industrial-design">
+								
+					
+		<div class="gs24-footer-link-label">
+											<svg viewBox="0 0 100 100"><path d="M40,0h20v10h10v10h10v10h10v10h10v20h-10v10h-10v10h-10v10h-10v10h-20v-20h10v-10h10v-10H0v-20h60v-10h-10v-10h-10V0Z"></path></svg>
+											<span>Industrial Design</span>
+										
+						
+		</div>
+							</a>
+							<a class="gs24-footer-link" href="/grad-show-2024-interior-architecture">
+								
+					
+		<div class="gs24-footer-link-label">
+											<svg viewBox="0 0 100 100"><path d="M40,0h20v10h10v10h10v10h10v10h10v20h-10v10h-10v10h-10v10h-10v10h-20v-20h10v-10h10v-10H0v-20h60v-10h-10v-10h-10V0Z"></path></svg>
+											<span>Interior Architecture</span>
+										
+						
+		</div>
+							</a>
+							<a class="gs24-footer-link" href="/grad-show-2024-jewelry-metalsmithing">
+								
+					
+		<div class="gs24-footer-link-label">
+											<svg viewBox="0 0 100 100"><path d="M40,0h20v10h10v10h10v10h10v10h10v20h-10v10h-10v10h-10v10h-10v10h-20v-20h10v-10h10v-10H0v-20h60v-10h-10v-10h-10V0Z"></path></svg>
+											<span>Jewelry + Metalsmithing</span>
+										
+						
+		</div>
+							</a>
+							<a class="gs24-footer-link" href="/grad-show-2024-landscape-architecture">
+								
+					
+		<div class="gs24-footer-link-label">
+											<svg viewBox="0 0 100 100"><path d="M40,0h20v10h10v10h10v10h10v10h10v20h-10v10h-10v10h-10v10h-10v10h-20v-20h10v-10h10v-10H0v-20h60v-10h-10v-10h-10V0Z"></path></svg>
+											<span>Landscape Architecture</span>
+										
+						
+		</div>
+							</a>
+							<a class="gs24-footer-link" href="/grad-show-2024-painting">
+								
+					
+		<div class="gs24-footer-link-label">
+											<svg viewBox="0 0 100 100"><path d="M40,0h20v10h10v10h10v10h10v10h10v20h-10v10h-10v10h-10v10h-10v10h-20v-20h10v-10h10v-10H0v-20h60v-10h-10v-10h-10V0Z"></path></svg>
+											<span>Painting</span>
+										
+						
+		</div>
+							</a>
+							<a class="gs24-footer-link" href="/grad-show-2024-photography">
+								
+					
+		<div class="gs24-footer-link-label">
+											<svg viewBox="0 0 100 100"><path d="M40,0h20v10h10v10h10v10h10v10h10v20h-10v10h-10v10h-10v10h-10v10h-20v-20h10v-10h10v-10H0v-20h60v-10h-10v-10h-10V0Z"></path></svg>
+											<span>Photography</span>
+										
+						
+		</div>
+							</a>
+							<a class="gs24-footer-link" href="/grad-show-2024-printmaking">
+								
+					
+		<div class="gs24-footer-link-label">
+											<svg viewBox="0 0 100 100"><path d="M40,0h20v10h10v10h10v10h10v10h10v20h-10v10h-10v10h-10v10h-10v10h-20v-20h10v-10h10v-10H0v-20h60v-10h-10v-10h-10V0Z"></path></svg>
+											<span>Printmaking</span>
+										
+						
+		</div>
+							</a>
+							<a class="gs24-footer-link" href="/grad-show-2024-sculpture">
+								
+					
+		<div class="gs24-footer-link-label">
+											<svg viewBox="0 0 100 100"><path d="M40,0h20v10h10v10h10v10h10v10h10v20h-10v10h-10v10h-10v10h-10v10h-20v-20h10v-10h10v-10H0v-20h60v-10h-10v-10h-10V0Z"></path></svg>
+											<span>Sculpture</span>
+										
+						
+		</div>
+							</a>
+							<a class="gs24-footer-link" href="/grad-show-2024-teaching-learning-art-design">
+								
+					
+		<div class="gs24-footer-link-label">
+											<svg viewBox="0 0 100 100"><path d="M40,0h20v10h10v10h10v10h10v10h10v20h-10v10h-10v10h-10v10h-10v10h-20v-20h10v-10h10v-10H0v-20h60v-10h-10v-10h-10V0Z"></path></svg>
+											<span>Teaching + Learning in&nbsp;Art&nbsp;+&nbsp;Design</span>
+										
+						
+		</div>
+							</a>
+							<a class="gs24-footer-link" href="/grad-show-2024-textiles">
+								
+					
+		<div class="gs24-footer-link-label">
+											<svg viewBox="0 0 100 100"><path d="M40,0h20v10h10v10h10v10h10v10h10v20h-10v10h-10v10h-10v10h-10v10h-20v-20h10v-10h10v-10H0v-20h60v-10h-10v-10h-10V0Z"></path></svg>
+											<span>Textiles</span>
+										
+						
+		</div>
+							</a>
+						
+				
+	</div>
+				<a class="gs24-footer-title" href="/grad-show-2024">
+					
+			
+	<div class="gs24-footer-title-text">
+								<span>RISD</span>
+								<span>Grad</span>
+								<span>Show</span>
+								<span>2024</span>
+							
+				
+	</div>
+					
+			
+	<div class="gs24-footer-title-background-overlay">
+				
+	</div>
+					
+			
+	<div class="gs24-footer-title-background">
+				
+	</div>
+				</a>
+		
+</footer>
+	<script>
+		// FOOTER
+		function gs24GenerateFooter() {
+			// Pick images to use
+			let images = [];
+			let totalImages = Math.round(Math.random()*5)+2;
+			for (let i=0; i<totalImages; i++) {
+				let randomImage = `gs24-img${Math.round(Math.random()*34)}.jpg`;
+				images.push(randomImage);
+			}
+			// Generate title animation
+			const title = document.querySelector('.gs24-footer-title-text');
+			for (let span of title.querySelectorAll('span')) {
+				let spanTemp = '';
+				for (let letter of span.innerText) {
+					spanTemp += `<span style="animation-duration: ${Math.floor(Math.random()*20+5)}s;">${letter}</span>`;
+				}
+				span.innerHTML = spanTemp;
+			}
+			// Generate title background
+			const footerTitleBackground = document.querySelector('.gs24-footer-title-background');
+			let footerGenartTemp = '';
+			for (let col=0; col<Math.round(200/(1.25/2)); col++) {
+				footerGenartTemp += `
+					
+	
+<div class="gs24-footer-title-background-col" style="background-image: url('http://risdgradshow2024.noreplica.com/assets/images/${images[Math.floor(Math.random()*images.length)]}'); animation: gs24-footer-background-shift 600s -${Math.random()*10}s infinite linear;">
+		
+</div>
+				`;
+			}
+			footerTitleBackground.innerHTML = footerGenartTemp;
+			// Generate footer backgrounds
+			for (let footerLink of document.querySelectorAll('.gs24-footer-link')) {
+				const footerLinkLabel = footerLink.querySelector('.gs24-footer-link-label');
+				console.log(footerLinkLabel);
+				footerLinkLabel.style.animationDelay = `-${(Math.random()*2).toFixed(2)}s`;
+				footerLink.innerHTML += `
+					
+	
+<div class="gs24-footer-link-background" style="background-image: url('http://risdgradshow2024.noreplica.com/assets/images/${images[Math.floor(Math.random()*images.length)]}'); animation: gs24-footer-background-shift 600s -${Math.random()*10}s infinite linear;">
+		
+</div>
+				`;
+			}
+		}
+		gs24GenerateFooter();
+	</script>
+</body>
+</html>
+
